@@ -5,7 +5,7 @@ from weasyprint import HTML
 
 st.set_page_config(page_title="The Amogh Astro • Vedic Muhurta Audit Engine", page_icon="🏛️", layout="wide")
 
-MASTER_ACCESS_PIN = "amogh786"
+MASTER_ACCESS_PIN = "amogh1611"
 
 st.markdown("""
 <style>

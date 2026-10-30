@@ -249,7 +249,7 @@ with c1:
 with c2:
     birth_place = st.text_input(f"📍 {L['bplace']} (City/State):", value="Ahmedabad, Gujarat")
     birth_time = st.time_input("⏰ Birth Time:", value=datetime.time(12, 50))
-    with c3:
+with c3:
     st.write("🎂 **Birth Date (DOB):**")
     d_c1, d_c2, d_c3 = st.columns(3)
     with d_c1:
@@ -259,7 +259,7 @@ with c2:
     with d_c3:
         b_yr = st.selectbox("Year", list(range(2030, 1939, -1)), index=40)
     birth_date = datetime.date(b_yr, b_mon, b_day)
-    with c4:
+with c4:
     start_date = st.date_input("📅 Search From:", value=datetime.date(2026, 11, 1))
     end_date = st.date_input("📅 Search To:", value=datetime.date(2026, 11, 30))
 

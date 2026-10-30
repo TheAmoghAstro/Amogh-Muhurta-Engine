@@ -5,6 +5,11 @@ from weasyprint import HTML
 
 st.set_page_config(page_title="The Amogh Astro • Vedic Muhurta Engine", page_icon="🏛️", layout="wide")
 
+# ==========================================
+# 🔐 સિક્યોરિટી અને એક્સેસ કંટ્રોલ (PIN સેટિંગ)
+# ==========================================
+MASTER_ACCESS_PIN = "amogh786"  # 👈 આ PIN તમે ગમે ત્યારે અહીંથી બદલી શકો છો
+
 st.markdown("""
 <style>
     .main { background-color: #f8fafc; }
@@ -218,7 +223,7 @@ MASTER_EVENTS = {
     },
     "AST_GRP": {
         "category": {"GU": "સ્થાવર - જંગમ મિલકત મુહૂર્ત", "HI": "स्थावर - जंगम संपत्ति मुहूर्त", "EN": "Real Estate & Asset Acquisition"},
-        "name": {"GU": "નૂતન ગૃહ પ્રવેશ / વાસ્તુ શાંતિ પૂજન", "HI": "नूतन गृह प्रवेश / वास्तु शांति पूजन", "EN": "Griha Pravesh / Sacred Housewarming"},
+        "name": {"GU": "નૂતન ગૃહ પ્રવેશ / વાસ્તુ શાંતિ પૂજન", "HI": "નૂતન ગૃહ પ્રવેશ / વાસ્તુ શાંતિ પૂજન", "EN": "Griha Pravesh / Sacred Housewarming"},
         "sh_nak": [3, 11, 12, 13, 16, 20, 25, 26], "sh_tith": [2, 3, 5, 7, 10, 11, 12, 13],
         "sh_var": ["Som", "Budh", "Guru", "Shukra"], "v_var": ["Mangal", "Ravi"],
         "bonus": {"GU": "વાસ્તુ પુરુષ આશીર્વાદ / સ્થિર યોગ", "HI": "વાસ્તુ પુરુષ આશીર્વાદ / સ્થિર યોગ", "EN": "Vastu Purusha Enduring Stability Yoga"}
@@ -234,7 +239,10 @@ st.markdown("""
 
 with st.sidebar:
     st.image("https://img.icons8.com/color/96/om.png", width=70)
-    st.subheader("⚙️ પ્રણાલી સેટિંગ્સ / Settings")
+    st.subheader("🔐 Security & Settings")
+    entered_pin = st.text_input("Enter Access PIN to Unlock:", type="password", placeholder="Enter PIN")
+    
+    st.markdown("---")
     lang_choice = st.selectbox("🌐 Report Language / ભાષા પસંદ કરો:", ["GU", "HI", "EN"], index=0,
                                format_func=lambda x: "ગુજરાતી (Gujarati)" if x=="GU" else ("हिन्दी (Hindi)" if x=="HI" else "English"))
     L = I18N[lang_choice]
@@ -242,6 +250,18 @@ with st.sidebar:
     st.markdown("### 📞 Contact Consultancy")
     st.caption("**The Amogh Astro Consultancy**\\nAhmedabad, Gujarat\\ntheamoghastro@gmail.com")
 
+# ==========================================
+# 🛡️ PIN ચકાસણી બ્લોક
+# ==========================================
+if entered_pin != MASTER_ACCESS_PIN:
+    st.info("🔒 **આ એપ્લિકેશન સુરક્ષિત (Password Protected) છે.**")
+    st.warning("કૃપા કરીને ડાબી બાજુ સાઇડબારમાં સાચો **Access PIN** દાખલ કરો.")
+    st.stop()  # ખોટો PIN હોય તો આગળનું કશું જ નહીં દેખાય
+
+# ==========================================
+# PIN સાચો હોય તો જ નીચેનું પોર્ટલ ખુલશે:
+# ==========================================
+st.success("🔓 એક્સેસ મંજૂર થયો! વેલકમ ટુ ધ અમોઘ એસ્ટ્રો પોર્ટલ.")
 st.subheader(L['client'] + " " + L['event'] + " નોંધણી ફોર્મ")
 
 col1, col2, col3 = st.columns(3)

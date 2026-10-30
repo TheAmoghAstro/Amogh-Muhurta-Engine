@@ -257,7 +257,7 @@ with c2:
     with d_c2:
         b_mon = st.selectbox("Month", list(range(1, 13)), index=4)
     with d_c3:
-        b_yr = st.selectbox("Year", list(range(2030, 1939, -1)), index=40) # default 1990
+        b_yr = st.selectbox("Year", list(range(2030, 1939, -1)), index=40)
     birth_date = datetime.date(b_yr, b_mon, b_day)
     with c4:
     start_date = st.date_input("📅 Search From:", value=datetime.date(2026, 11, 1))

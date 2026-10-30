@@ -8,7 +8,7 @@ st.set_page_config(page_title="The Amogh Astro • Vedic Muhurta Engine", page_i
 # ==========================================
 # 🔐 સિક્યોરિટી અને એક્સેસ કંટ્રોલ (PIN સેટિંગ)
 # ==========================================
-MASTER_ACCESS_PIN = "amogh786"  # 👈 આ PIN તમે ગમે ત્યારે અહીંથી બદલી શકો છો
+MASTER_ACCESS_PIN = "amogh1611"  # 👈 આ PIN તમે ગમે ત્યારે અહીંથી બદલી શકો છો
 
 st.markdown("""
 <style>
